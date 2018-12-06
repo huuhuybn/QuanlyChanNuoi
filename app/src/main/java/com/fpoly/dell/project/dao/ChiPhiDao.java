@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
+import com.fpoly.dell.project.database.Constants;
 import com.fpoly.dell.project.database.DatabaseHelper;
 import com.fpoly.dell.project.model.ChiPhi;
 
@@ -24,7 +25,7 @@ public class ChiPhiDao {
             "text primary key,tenthucan text, ngaynhap date, soluong text, giatien text);";
     private static final String TAG = "ChiPhiDao";
 
-    private final SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+    private final SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
 
     public ChiPhiDao(Context context) {
         dbHelper = new DatabaseHelper(context);
@@ -60,7 +61,7 @@ public class ChiPhiDao {
             ChiPhi ee = new ChiPhi();
             ee.setMachiphi(c.getString(0));
             ee.setTenthucan(c.getString(1));
-            ee.setNgaynhap(sdf.parse(c.getString(2)));
+            ee.setNgaynhap(sdf.parse(Constants.convertDate(c.getString(2))));
             ee.setSoluong(c.getString(3));
             ee.setGiatien(c.getString(4));
 

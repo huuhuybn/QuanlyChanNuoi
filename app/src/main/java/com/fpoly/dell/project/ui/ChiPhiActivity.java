@@ -47,7 +47,7 @@ public class ChiPhiActivity extends AppCompatActivity {
         try {
             dsChiPhi = chiPhiDao.getAllChiPhi();
         } catch (Exception e) {
-            Log.d("Error: ", e.toString());
+            Log.e("Error: ", e.toString());
         }
         adapter = new ChiPhiAdapter(this, dsChiPhi);
         lvChiPhi.setAdapter(adapter);
